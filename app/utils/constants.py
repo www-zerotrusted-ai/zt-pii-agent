@@ -1,0 +1,1 @@
+GET_DETECTED_PIIS = "/get-detected-piis"
