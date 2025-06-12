@@ -73,4 +73,4 @@ def get_detected_piis(text: str) -> List[Dict]:
 
 if __name__ == "__main__":
     # Initialize and run the server
-    mcp.run(transport='sse')
+    mcp.run(transport='stdio')
