@@ -72,4 +72,4 @@ def get_detected_piis(text: str) -> List[Dict]:
 
 if __name__ == "__main__":
     # Initialize and run the server
-    mcp.run(transport='streamable-http', path="/zerotrusted-ai/pii-detection")
+    mcp.run(transport='streamable-http', path="/zerotrusted-ai/pii-detection", port=80)
