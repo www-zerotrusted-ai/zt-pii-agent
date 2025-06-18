@@ -18,6 +18,7 @@ WORKDIR /app
 COPY . .
 
 RUN poetry install
+RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 80
 
