@@ -72,7 +72,7 @@ def get_detected_piis(text: str) -> List[Dict]:
     
     return sorted(results, key=lambda x: x['start'])
 
-@mcp.custom_route("/health", methods=["GET"])
+@mcp.custom_route("/", methods=["GET"])
 async def health_check(request: Request) -> PlainTextResponse:
     return PlainTextResponse("OK")
 
