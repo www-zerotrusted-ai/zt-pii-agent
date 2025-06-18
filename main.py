@@ -83,5 +83,5 @@ if __name__ == "__main__":
         path="/zerotrusted-ai/pii-detection",
         port=80,
         host="0.0.0.0",
-        log_level="DEBUG",        # Override global log level
+        log_level="debug",        # Override global log level
         )
