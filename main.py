@@ -82,4 +82,5 @@ if __name__ == "__main__":
         transport='streamable-http',
         path="/zerotrusted-ai/pii-detection",
         port=80,
+        host="0.0.0.0",
         )
