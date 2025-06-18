@@ -11,15 +11,14 @@ ENV POETRY_VERSION=2.1.3 \
     PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
 
 RUN curl -sSL https://install.python-poetry.org | python3 - && \
-    export PATH="$HOME/.local/bin:$PATH"
-
-ENV PATH="/root/.local/bin:$PATH"
+    ln -s $POETRY_HOME/bin/poetry /usr/local/bin/poetry
 
 WORKDIR /app
 
 COPY . .
 
 RUN poetry install
+
 EXPOSE 80
 
 CMD ["python", "main.py"]
