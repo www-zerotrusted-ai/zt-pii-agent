@@ -1,7 +1,6 @@
 from app.utils.constants import GET_DETECTED_PIIS
 from typing import Dict, List
-
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 
 # Create an MCP server
 mcp = FastMCP()
@@ -73,4 +72,4 @@ def get_detected_piis(text: str) -> List[Dict]:
 
 if __name__ == "__main__":
     # Initialize and run the server
-    mcp.run(transport='stdio')
+    mcp.run(transport='streamable-http', path="/zerotrusted-ai/pii-detection")
