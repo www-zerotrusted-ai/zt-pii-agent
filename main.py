@@ -1,6 +1,8 @@
 from app.utils.constants import GET_DETECTED_PIIS
 from typing import Dict, List
 from fastmcp import FastMCP
+from starlette.requests import Request
+from starlette.responses import PlainTextResponse
 
 # Create an MCP server
 mcp = FastMCP()
@@ -70,6 +72,14 @@ def get_detected_piis(text: str) -> List[Dict]:
     
     return sorted(results, key=lambda x: x['start'])
 
+@mcp.custom_route("/health", methods=["GET"])
+async def health_check(request: Request) -> PlainTextResponse:
+    return PlainTextResponse("OK")
+
 if __name__ == "__main__":
     # Initialize and run the server
-    mcp.run(transport='streamable-http', path="/zerotrusted-ai/pii-detection", port=80)
+    mcp.run(
+        transport='streamable-http',
+        path="/zerotrusted-ai/pii-detection",
+        port=80,
+        )
