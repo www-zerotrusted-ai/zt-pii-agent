@@ -25,5 +25,6 @@ jobs:
 
       - name: Build and push image to ACR
         run: |
-          docker build -t ${{ vars.REGISTRY_NAME }}.azurecr.io/zt-pii-agent:dev-${{ github.sha }} -f .docker/Dockerfile .
-          docker push ${{ vars.REGISTRY_NAME }}.azurecr.io/zt-pii-agent:dev-${{ github.sha }}
+          GITHUB_SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)
+          docker build -t ${{ vars.REGISTRY_NAME }}.azurecr.io/zt-pii-agent:dev-${GITHUB_SHORT_SHA} -f .docker/Dockerfile .
+          docker push ${{ vars.REGISTRY_NAME }}.azurecr.io/zt-pii-agent:dev-${GITHUB_SHORT_SHA}
